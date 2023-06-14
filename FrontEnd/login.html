@@ -10,7 +10,6 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="./assets/login.css">
-    <title>Document</title>
     <script src="login.js"></script>
 </head>
 <body>
@@ -29,20 +28,21 @@
         <section class="connexion">
             <h2>Log In</h2>
             <div id="error"></div>
-            <form method="POST" action="login.html" id="login">
-                <div>
+            <form method="POST" action="" id="login">
+                <div class="form-control">
                     <label for="email">E-mail</label>
                     <input id="email" type="email" name="username">
                 </div>
-                <div>
+                <div class="form-control">
                     <label for="password">Mot de passe</label>
                     <input id="password" type="password" name="mot-de-passe">
                 </div>
+                <div><span class="error"></span></div>
                 <div>
                     <button type="submit">Se connecter</button>
                 </div>
-                <!-- Ne pas oublier d'ajouter "mot de passe oublié"-->
             </form> 
+            <p>Mot de passe oublié</p>
         </section>
     </main>
 
