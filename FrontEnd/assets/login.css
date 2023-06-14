@@ -33,6 +33,7 @@
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+
 button {
     border: none;
 }
@@ -51,4 +52,9 @@ button[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+
+.connexion p:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
