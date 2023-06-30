@@ -1,0 +1,64 @@
+.connexion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 355px;
+}
+
+.connexion h2{
+	margin-bottom: 20px;
+}
+.connexion form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+	text-align: left;
+	margin-top: 30px;
+}
+
+.connexion form div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+.connexion input {
+	height: 50px;
+    width: 380px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+
+button {
+    border: none;
+}
+
+button[type="submit"]:hover {
+    background-color: #0e2f28;
+}
+
+button[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+    padding: 10px 40px;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+.connexion p a{
+    text-decoration: none;
+    color: black;
+}
+.connexion p a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
