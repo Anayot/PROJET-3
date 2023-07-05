@@ -15,11 +15,14 @@
 	<script src="projets.js" type="module" defer></script>
 </head>
 <body>
-		<div id="bandeau"></div><!--Modal 1 "Mode édition - publier les changements"-->
+	<div id="bandeau" class="hidden">
+		<p><i class="fa-regular fa-pen-to-square"></i> Mode édition</p>
+		<button id="publish">publier les changements</button>
+	</div><!--Modal 1 "Mode édition - publier les changements"-->
 	<header>
-		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav>
-			<ul id="en-tete">
+			<ul>
 				<li><a href="#portfolio">projets</a></li>
 				<li><a href="#contact">contact</a></li>
 				<li id="login"><a href="login.html">login</a></li> <!-- modifier en logout une fois connecté -->
@@ -46,9 +49,9 @@
 
 		<section id="portfolio">
 			<div class="title">
-				<h2>Mes Projets</h2>
-				<!-- Modal 3 - modifier les projets -->
-				<div class="button-modal"></div>
+				<h2>Mes Projets
+					<div class="button-modal" id="edit-projects"></div> <!-- Modal 3 - modifier les projets -->
+				</h2>
 			</div>
 			<div id="filtres"></div> <!-- Cacher cet élément une fois connecté -->
 			<div id="gallery" class="gallery"></div>
@@ -78,14 +81,42 @@
 	</footer>
 
 	<!-- MODALES -->
-		<aside id="modal3" class="modal" aria-hidden="" role="dialog" aria-labelledby="titlemodal" style="display: none;">
-			<div class="modal-wrapper js-modal-stop">
+		<aside id="modal-1" class="modal" aria-hidden="" role="dialog" aria-labelledby="title-modal" style="display: none;">
+			<div class="modal-wrapper-1 js-modal-stop">
 				<button class="js-modal-close"><i class="fa-solid fa-xmark"></i></button>
-				<h3 id="titlemodal">Galerie photo</h3>
+				<h3 class="title-modal">Galerie photo</h3>
 				<div id="edition-photo"></div>
-				<!-- Mettre une petite bande -->
-				<button class="new-picture">Ajouter une photo</button>
-				<p>Supprimer la galerie</p>
+				<div class="action-modal">
+					<!-- Mettre une petite bande -->
+					<button class="new-picture">Ajouter une photo</button>
+					<p>Supprimer la galerie</p>
+				</div>
+			</div>
+		</aside>
+		<!-- Création de la deuxième modale-->
+		<aside id="modal-2" class="modal" aria-hidden="" role="dialog" aria-labelledby="title-modal" style="display: flex;">
+			<div class="modal-wrapper-2 js-modal-stop">
+				<div class="back-close">
+					<button><i class="fa-solid fa-arrow-left"></i></button>
+					<button><i class="fa-solid fa-xmark"></i></button>
+				</div>
+				<h3 class="title-modal">Ajout photo</h3>
+				<form method="post" action="#" class="form-modal">
+					<div class="add-pictures">
+						<i class="fa-regular fa-image"></i>
+						<button class="button-add-picture">+ Ajouter photo</button>
+						<p>jpg, png : 4mo max</p>
+					</div>
+					<div class="complete-form">
+						<label for="titre">Titre</label>
+						<input type="text" class="picture-title">
+						<label for="categories">Catégories</label>
+						<select name="categories" class="categories">
+						</select>
+					</div>
+					<button class="confirm-form">Valider</button> 
+					<!-- Bouton en gris ne peut être cliquable si les champs ne sont pas remplis -->
+				</form>
 			</div>
 		</aside>
 
