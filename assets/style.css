@@ -32,7 +32,16 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	background-color: #fffef8;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+
+header, main, footer {
+	max-width: 1440px;
+	width: calc(100% - 300px);
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -50,7 +59,6 @@ table {
 }
 /** end reset css **/
 body {
-	max-width: 1140px;
 	margin: auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
@@ -60,7 +68,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0;
 }
 
 #bandeau {
@@ -86,7 +94,7 @@ header {
 }
 
 section {
-	margin: 50px 0
+	margin: 50px;
 }
 
 h1{
@@ -144,6 +152,8 @@ li a:hover {
 #introduction {
 	display: flex;
 	align-items: center;
+	gap: 50px;
+	margin: 0 50px;
 }
 #introduction figure {
 	display: flex;
@@ -154,8 +164,7 @@ li a:hover {
 
 #introduction img {
 	display: block;
-	margin: auto;
-	width: 80%;
+	width: 100%;
 }
 
 #introduction article {
@@ -164,10 +173,10 @@ li a:hover {
 #introduction h2 {
 	margin-bottom: 1em;
 }
-#introduction article div {
+#introduction .button-modal {
 	display: flex;
 	flex-direction: column;
-	gap: 25px;
+	margin-bottom: 20px;
 }
 
 #introduction p {
@@ -181,6 +190,20 @@ li a:hover {
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+	position: relative;
+}
+
+h2 .button-modal{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	top: 50%;
+	font-family: 'Work Sans';
+	font-weight: 400;
+	margin-left: 30px;
+	font-size: 14px;
+	transform: translateY(-50%);
+
 }
 
 #filtres {
@@ -284,5 +307,5 @@ footer nav ul {
 }
 
 .hidden {
-	display: none;
+	display: none!important;
 }
