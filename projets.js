@@ -3,7 +3,7 @@ import { openModal } from "./modal.js";
 
 
 
-// get dat category
+// get data category
 const categories = [{id:0, name:"Tous"}, ...await fetchCategories()]; // Cas où on insert un nouvel élément au tableau existant
 console.log(categories)
 
@@ -21,8 +21,8 @@ console.log(categories)
 // #endregion
 
 // get gallery data
-    const projets = [...await fetchGallery ()];
-    console.log(projets)
+const projets = [...await fetchGallery ()];
+console.log(projets)
 
 // build gallery element
     const galleryElement = document.querySelector('#gallery');
@@ -70,31 +70,37 @@ console.log(categories)
         })
     }
 
+    const imageGallery = document.querySelector("#edition-photo");
+    console.log(imageGallery)
+
+    for (let i=0; i < projets.length; i++) {
+        const image = projets[i]
+        const imageElement = document.createElement('div');
+        imageElement.setAttribute("imageUrl", image.imageUrl)
+        imageElement.className = 'images';
+        imageElement.innerHTML = `
+        <div>
+            <i class="fa-solid fa-up-down-left-right"></i>
+            <i class="fa-solid fa-trash-can"></i>
+        </div>
+        <img src="${image.imageUrl}" alt="${image.title}">
+        <p>éditer</p>`
+        imageGallery.appendChild(imageElement)
+    }
+
 
 const user = localStorage.getItem("user")
 console.log(user ? "connecté" : "non connecté")
 
 // Création de logout
-const enTete = document.querySelector("#en-tete")
-const login = document.querySelector('#login');
-const logout = document.createElement('li');
-logout.innerHTML = `<li><a href="index.html">logout</li>`
+const logbutton = document.querySelector('#login');
 
 if (user !== null) {
-    // change login to logout // Méthode d'instance .replaceChild (new, ancien)
-    enTete.appendChild(logout)
-    enTete.replaceChild(logout, login)
-
-    // logout eventlistener -> {
-    //      empty "user" in localStorage -> removeItem
-    //      reload index.html -> window.location.href = "index.html"
-    // }
-    // Evenement pour se déconnecter
-    logout.addEventListener('click', e => {
-        e.preventDefault()
-        localStorage.removeItem("user");
-        window.location.href = "index.html" //Permet de rediriger la déconnexion sur la page souhaitée
-    })
+    // change login to logout
+    logbutton.innerHTML = `<a href="#">logout</a>`
+    // OU login.textContent = "logout"
+    //     login.setAttribute("href", "#") => Sans oublier de corriger le HTML 
+    
 
     // Remove filters
     const categoryElement = document.querySelector("#filtres");
@@ -102,30 +108,28 @@ if (user !== null) {
 
     // Création du bandeau 
     const bandeauEnTete = document.querySelector('#bandeau')
-    const editionMode = document.createElement('p')
-    editionMode.innerHTML = `<p><i class="fa-regular fa-pen-to-square"></i> Mode édition</p>`
-    const published = document.createElement('button')
-    published.textContent = "publier les changements"    
-    //Ajout de la barre noire en haut de la page
-    bandeauEnTete.appendChild(editionMode)
-    bandeauEnTete.appendChild(published) 
+    bandeauEnTete.classList.remove('hidden')
 
     // Création boutons des modales
     const addButtonModals = [...document.querySelectorAll('.button-modal')]
     addButtonModals.forEach( addButtonModal => {
         const buttonModal = document.createElement('a')
-        buttonModal.innerHTML = `<a href="#modal" class="js-modal"><i class="fa-regular fa-pen-to-square"></i> modifier</a>`,
+        buttonModal.classList.add("js-modal")
+        buttonModal.setAttribute("href", "#modal")
+        buttonModal.innerHTML = `<i class="fa-regular fa-pen-to-square"></i> modifier`,
         addButtonModal.appendChild(buttonModal)
-    })
-    
-    
-    // Afficher les boutons "modifier"
-    
+    })    
  
 
     // enable modals
-    document.querySelectorAll(".js-modal").forEach(a => {
-        a.addEventListener('click', openModal)
+    document.querySelectorAll("#edit-projects .js-modal").forEach(a => {
+        a.addEventListener('click', openModal) 
     });
-}
 
+    // Evenement pour se déconnecter
+    logbutton.addEventListener('click', e => {
+        e.preventDefault()
+        localStorage.removeItem("user");
+        window.location.href = "index.html" //Permet de rediriger la déconnexion sur la page souhaitée
+    })
+}
