@@ -1,0 +1,313 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #fffef8;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header, main, footer {
+	max-width: 1440px;
+	width: calc(100% - 300px);
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** end reset css **/
+body {
+	margin: auto;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+}
+
+/* #region EN-TETE */
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+}
+
+#bandeau {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	color: #fff;
+	height: 60px;
+	width: 100%;
+	gap: 21px;
+}
+
+#bandeau button {
+	color: black;
+	background-color: white;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	border-radius: 60px;
+	padding: 11px 23px;
+	border: none;
+}
+
+section {
+	margin: 50px;
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C;
+}
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+nav {
+	display: flex;
+	align-items: center;
+}
+nav ul {
+	display: flex;
+	list-style-type: none;
+	gap: 30px;
+
+}
+
+nav li a{
+	padding: 0 10px;
+	font-size: 1em;
+	text-decoration: none;
+	color: black;
+}
+
+.logo-insta {
+	width: 1.2em;
+	height: 1.2em;
+	font-size: 1em;
+}
+
+li a:hover {
+	color: #B1663C;
+}
+/* #endregion EN-TETE */
+
+/* #region PRESENTATION */
+
+#introduction {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+	margin: 0 50px;
+}
+#introduction figure {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: 15px;
+}
+
+#introduction img {
+	display: block;
+	width: 100%;
+}
+
+#introduction article {
+	flex: 1
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+#introduction .button-modal {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+
+/* #endregion PRESENTATION */
+
+/* #region MES PROJETS */
+
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+	position: relative;
+}
+
+h2 .button-modal{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	top: 50%;
+	font-family: 'Work Sans';
+	font-weight: 400;
+	margin-left: 30px;
+	font-size: 14px;
+	transform: translateY(-50%);
+
+}
+
+#filtres {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+#filtres button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #1D6154;
+	color: #1D6154;
+	background-color: white;
+	font-family: 'Syne';
+	font-size: 16px;
+	font-weight: 700;
+	border-radius: 60px;
+	padding: 9px 15px;
+}
+
+#filtres button:hover{
+	color: white;
+	background-color: #1D6154;
+}
+
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 18px;
+	grid-row-gap: 16px;
+}
+
+
+.gallery img {
+	width: 100%;
+	height: 407px;
+	object-fit: cover;
+}
+/* #endregion MES PROJETS */
+
+/* #region FORMULAIRE CONTACT */
+#contact {
+	width: 50%;
+margin: auto;
+}
+#contact > * {
+	text-align: center;
+
+}
+#contact h2{
+	margin-bottom: 20px;
+}
+#contact form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label {
+	margin: 2em 0 1em 0;
+}
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+/* #endregion FORMULAIRE CONTACT */
+
+footer {
+	display: flex;
+	flex-direction: row-reverse;
+	background-color: white;
+	width: 100%;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	margin: 2em
+}
+
+.hidden {
+	display: none!important;
+}
